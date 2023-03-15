@@ -33,11 +33,13 @@ const login = async (req, res) => {
 const register = async (req, res) => {
 
     try {
+
         const User = await User.create(req.body)
 
         res.status(201).json({message: "success",
     user: { 
         username: req.body.username, token: "token"
+
     }})
     } catch (error) {
         res.status(501).json({ errormessage: error.message, error: error });
